@@ -8,13 +8,15 @@ ej.: "la Resta es 750"*/
 
 function sumar()
 {	
-	let num1;
-	let num2;
-	let suma;
+	var num1;
+	var num2;
+	var suma;
 
-	num1 = parseInt(document.getElementById("txtIdNumeroUno").value);
-	num2 = parseInt(document.getElementById("txtIdNumeroDos").value);
+	num1 = document.getElementById("txtIdNumeroUno").value;
+	num2 = document.getElementById("txtIdNumeroDos").value;
 	
+	num1 = parseInt(num1);
+	num2 = parseInt(num2);
 	suma = parseInt (num1 + num2);
 
 	alert("La suma de los dos números es: " + suma);
@@ -22,14 +24,15 @@ function sumar()
 
 function restar()
 {
-	let num1;
-	let num2;
-	let resta;
+	var num1;
+	var num2;
+	var resta;
 
-	num1 = parseInt(document.getElementById("txtIdNumeroUno").value);
-	num2 = parseInt(document.getElementById("txtIdNumeroDos").value);
+	num1 = document.getElementById("txtIdNumeroUno").value;
+	num2 = document.getElementById("txtIdNumeroDos").value;
 	
-
+	num1 = parseInt(num1);
+	num2 = parseInt(num2);
 	resta = num1 - num2;
 
 	alert("La resta del segundo número al primero es: " + resta);
@@ -38,13 +41,16 @@ function restar()
 
 function multiplicar()
 { 
-	let num1;
-	let num2;
-	let multiplicacion;
+	var num1;
+	var num2;
+	var multiplicacion;
 
-	num1 = parseInt(document.getElementById("txtIdNumeroUno").value);
-	num2 = parseInt(document.getElementById("txtIdNumeroDos").value);
+	num1 = document.getElementById("txtIdNumeroUno").value;
+	num2 = document.getElementById("txtIdNumeroDos").value;
 	
+	num1 = parseInt(num1);
+	num2 = parseInt(num2);
+
 	multiplicacion = num1 * num2;
 
 	alert("El producto de los números es: " +  multiplicacion);
@@ -54,12 +60,15 @@ function multiplicar()
 function dividir()
 {
 	
-	let num1;
-	let num2;
-	let dividir;
+	var num1;
+	var num2;
+	var dividir;
 
-	num1 = parseInt(document.getElementById("txtIdNumeroUno").value);
-	num2 = parseInt(document.getElementById("txtIdNumeroDos").value);
+	num1 = document.getElementById("txtIdNumeroUno").value;
+	num2 = document.getElementById("txtIdNumeroDos").value;
+	
+	num1 = parseInt(num1);
+	num2 = parseInt(num2);
 
 	dividir = num1 / num2;
 
