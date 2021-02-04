@@ -68,5 +68,5 @@ function PrecioFinal ()
 
     totalConIVA= suma * 1.21;
     
-    alert('El precio final es: ' + totalConIVA);
+    alert('El precio final es: ' + totalConIVA.toFixed(2));
 }

@@ -8,9 +8,9 @@ function FahrenheitCentigrados ()
 
     fahrenheit = document.getElementById('txtIdTemperatura').value;
     fahrenheit = parseFloat(fahrenheit);
-    conversion = (fahrenheit - 32) * 5/9;
+    conversion = (fahrenheit - 32) / 1.8;
 
-    alert( fahrenheit + '° fahrenheit son ' + conversion + '° centígrados');
+    alert( fahrenheit + '° fahrenheit son ' + conversion.toFixed(1) + '° centígrados');
     
 }
 
@@ -20,7 +20,7 @@ function CentigradosFahrenheit ()
     
     centigrados = document.getElementById('txtIdTemperatura').value;
     centigrados = parseFloat(centigrados);
-    conversion = (centigrados * 9/5) + 32;
+    conversion = (centigrados * 1.8) + 32;
 
-    alert( centigrados + '° centígrados son ' + conversion + '° fahrenheit');
+    alert( centigrados + '° centígrados son ' + conversion.toFixed(1) + '° fahrenheit');
 }
