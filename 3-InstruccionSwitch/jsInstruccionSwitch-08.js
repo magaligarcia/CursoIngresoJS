@@ -1,6 +1,26 @@
+/* GARCIA, MAGALI MARIBEL - SWITCH 08
+Enunciado:
+Al seleccionar un destino informar si hace FRIO o CALOR en ese destino */
+
 function mostrar()
 {
-	var destinoIngresado =txtIdDestino.value;
-	alert(destinoIngresado);
+		var destinoIngresado;
+		destinoIngresado = document.getElementById('txtIdDestino').value;
+	
+		switch (destinoIngresado)
+		{
+			case "Cataratas":
+				alert('Hace calor.');
+				break;
+			case "Ushuaia":
+				alert('Hace frio.');
+				break;
+			case "Mar del plata":
+				alert('Hace calor.');
+				break;
+			case "Bariloche":
+				alert('Hace frio.');
+				break;
+		}
 
 }//FIN DE LA FUNCIÓN
