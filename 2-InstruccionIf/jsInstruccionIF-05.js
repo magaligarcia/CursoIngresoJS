@@ -5,7 +5,6 @@ Al ingresar una edad solo debemos informar si la persona NO es adolescente.
 GARCIA, MAGALI MARIBEL
 */
 
-
 function mostrar()
 {
 	let edad;

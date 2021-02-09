@@ -13,7 +13,7 @@ function mostrar()
 	edad=document.getElementById("txtIdEdad").value;
 	edad=parseInt(edad);
 	
-	if (edad >= 13 && edad <= 17){
+	if (edad > 12 && edad < 18){
 		alert("Usted es adolescente");
 	}
 	

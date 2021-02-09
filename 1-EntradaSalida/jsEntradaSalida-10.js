@@ -15,6 +15,8 @@ function mostrarAumento()
 	importe = parseInt(importe);
 	
 	// descuento= importe *25 /100;
+	// resultado = importe - (importe * 0.25);
+	// resultado = importe *0.75;
 	descuento = (importe * 0.25);
 	resultado = (importe - descuento);
 

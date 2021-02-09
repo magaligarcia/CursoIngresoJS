@@ -34,7 +34,7 @@ function Circulo ()
     radio = document.getElementById('txtIdRadio').value;
     radio = parseFloat(radio);
     diametro= radio *2;
-    circunferencia= diametro * 3.14;
+    circunferencia= diametro * Math.PI;
     total= circunferencia *3;
 
     alert('Total de alambre necesario para un terreno circular es : ' + total + ' mts');
