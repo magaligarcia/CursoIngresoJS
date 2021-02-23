@@ -1,6 +1,7 @@
 /* GARCIA, MAGALI MARIBEL - SWITCH 09
 Enunciado:
-una agencia de viajes debe sacar las tarifas de los viajes , se cobra $15.000 por cada estadia como base, se pide el ingreso de
+una agencia de viajes debe sacar las tarifas de los viajes , 
+se cobra $15.000 por cada estadia como base, se pide el ingreso de
  una estacion del año y localidad para vacacionar para poder calcular el precio final*/
 
 function mostrar()

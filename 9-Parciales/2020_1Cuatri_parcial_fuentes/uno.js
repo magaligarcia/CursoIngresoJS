@@ -17,8 +17,12 @@ var cantidad;
 var marca;
 var fabricante;
 
-producto = prompt("Ingrese un producto: BARBIJO - JABÓN O ALCOHOL ");
+producto = prompt("Ingrese un producto: BARBIJO - JABÓN O ALCOHOL ").toLowerCase();
 precio = prompt("Ingrese el precio (entre 100 y 300)");
+precio = parseInt(precio);
+
+
+
 
 
 

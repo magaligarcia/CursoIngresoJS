@@ -21,8 +21,10 @@ function mostrar()
 
 	while(respuesta=="si")
 	{
+		numeroIngresado = prompt("Ingrese un número");
+		numeroIngresado = parseInt(numeroIngresado);
 		
-		respuesta=prompt("desea continuar?");
+		respuesta=prompt("desea continuar? Si/No").toLowerCase();
 	}//fin del while
 
 	document.write("la suma de negativos es :"+sumaNegativos);
