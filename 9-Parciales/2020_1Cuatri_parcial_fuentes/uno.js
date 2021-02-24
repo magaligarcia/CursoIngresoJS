@@ -21,28 +21,35 @@ var flagPrimerAlcohol;
 var precioAlcoholMasBarato;
 var cantidadAlcoholMasBarato;
 var fabricanteAlcoholMasBarato;
-var flagMayorCantidad;
-var flagTipoMayorCantidad;
-var promedioDelTipoConMasUnidades;
+var promedioPorCompra;
 var contadorJabones;
+var contadorBarbijos;
+var contadorAlcohol;
+var acumuladorJabones;
+var acumuladorBarbijos;
+var acumuladorAlcohol;
 
 contadorProductos=0;
 contadorJabones=0;
+contadorBarbijos=0;
+contadorAlcohol=0;
 flagPrimerAlcohol="es el primero";
-flagMayorCantidad=0;
+acumuladorJabones=0;
+acumuladorBarbijos=0;
+acumuladorAlcohol=0;
 
 
 while(contadorProductos<5)
-{
+{   //  INGRESOS Y VALIDACIONES
     tipoProducto = prompt("Ingrese el tipo de producto: BARBIJO - JABÓN O ALCOHOL ").toLowerCase();
-    while(isNaN(tipoProducto)==false || tipoProducto != "barbijo" && tipoProducto != "jabon" && tipoProducto != "alcohol") //VALIDACION DE TIPO
+    while(isNaN(tipoProducto)==false || tipoProducto != "barbijo" && tipoProducto != "jabon" && tipoProducto != "alcohol") 
     {
         tipoProducto = prompt("ERROR! Ingrese el tipo de producto: BARBIJO - JABÓN O ALCOHOL ").toLowerCase();
     }
 
     precio = prompt("Ingrese el precio (entre 100 y 300)");
     precio = parseInt(precio);
-    while(isNaN(precio)==true || precio < 100 || precio > 300)//VALIDACION DE PRECIO 
+    while(isNaN(precio)==true || precio < 100 || precio > 300)
     {
         precio = prompt("ERROR. El precio debe ser entre 100 y 300:");
         precio = parseInt(precio);
@@ -67,41 +74,49 @@ while(contadorProductos<5)
     {
         fabricante = prompt("ERROR. Reingrese el nombre del fabricante:");
     }
-
-    if(tipoProducto == "alcohol")
+    // TIPOS DE DATOS
+    switch(tipoProducto)
     {
-        if(flagPrimerAlcohol == "es el primero") // PRIMER ALCOHOL INGRESADO
-        {
-            precioAlcoholMasBarato = precio;
-            cantidadAlcoholMasBarato = cantidad;
-            fabricanteAlcoholMasBarato = fabricante;
-            flagPrimerAlcohol="NO es el primero";
-        } else {
-            if(precio < precioAlcoholMasBarato) // SI NO ES EL PRIMERO, COMPARO PRECIOS
+        case "alcohol":
+            if(flagPrimerAlcohol == "es el primero") // PRIMER ALCOHOL INGRESADO
             {
                 precioAlcoholMasBarato = precio;
                 cantidadAlcoholMasBarato = cantidad;
                 fabricanteAlcoholMasBarato = fabricante;
+                contadorAlcohol++;
+                acumuladorAlcohol = acumuladorAlcohol + cantidad;
+                flagPrimerAlcohol="NO es el primero";
+            } else {
+                if(precio < precioAlcoholMasBarato) // SI NO ES EL PRIMERO, COMPARO PRECIOS
+                {
+                    precioAlcoholMasBarato = precio;
+                    cantidadAlcoholMasBarato = cantidad;
+                    fabricanteAlcoholMasBarato = fabricante;
+                    contadorAlcohol++;
+                    acumuladorAlcohol = acumuladorAlcohol + cantidad;
+                }
             }
-        }
-    } else 
-    {
-        if(tipoProducto == "jabon") // CANTIDAD TOTAL DE JABONES
-        {
-            contadorJabones = contadorJabones + cantidad;
-        }
-    }
-
-    if(cantidad>flagMayorCantidad) // Del tipo con mas unidades
-    {
-        flagMayorCantidad=cantidad;
-        flagTipoMayorCantidad=tipoProducto;
-    }
-    
+            break;
+        case "jabon":
+                contadorJabones++;
+                acumuladorJabones = acumuladorJabones + cantidad;
+            break;
+        case "barbijo":
+                contadorBarbijos++;
+                acumuladorBarbijos = acumuladorBarbijos + cantidad;
+            break;
+    }//FIN SWITCH
 contadorProductos++;
 }//FIN WHILE 5 UNIDADES
+if(acumuladorAlcohol>acumuladorBarbijos && acumuladorAlcohol > acumuladorJabones)
+{
+    tipoDeMayorCantidad = "alcohol"
+} else
+{
+    if()
+}
 
-promedioDelTipoConMasUnidades = flagMayorCantidad / 5; //el promedio por compra 
+promedioPorCompra = flagMayorCantidad / 5; //el promedio por compra 
 
 document.write("Del más barato de los alcohol, la cantidad de unidades es: "+cantidadAlcoholMasBarato+ " y el fabricante es: "+fabricanteAlcoholMasBarato+"<br>");
 document.write("El promedio del tipo con más unidades: "+ +"<br>");
