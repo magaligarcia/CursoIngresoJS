@@ -26,7 +26,7 @@ function mostrar()
 	var diferenciaPositivosNegativos;
 
 	respuesta="si";
-	acumuladorNegativos=0;
+	acumuladaorNegtivos=0;
 	acumuladorPositivos=0;
 	contadorNegativos=0;
 	contadorPositivos=0;

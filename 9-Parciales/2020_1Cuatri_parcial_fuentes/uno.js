@@ -17,7 +17,6 @@ var precio;
 var cantidad;
 var marca;
 var fabricante;
-var flagPrimerAlcohol;
 var precioAlcoholMasBarato;
 var cantidadAlcoholMasBarato;
 var fabricanteAlcoholMasBarato;
@@ -29,11 +28,11 @@ var acumuladorJabones;
 var acumuladorBarbijos;
 var acumuladorAlcohol;
 
+
 contadorProductos=0;
 contadorJabones=0;
 contadorBarbijos=0;
 contadorAlcohol=0;
-flagPrimerAlcohol="es el primero";
 acumuladorJabones=0;
 acumuladorBarbijos=0;
 acumuladorAlcohol=0;
@@ -64,38 +63,20 @@ while(contadorProductos<5)
     }
 
     marca = prompt("Ingrese la marca del producto:");
-    while(isNaN(marca)== false)
-    {
-        marca = prompt("ERROR. Reingrese la marca del producto:");
-    }
-
     fabricante = prompt("Ingrese el nombre del fabricante: ");
-    while(isNaN(fabricante)== false)
-    {
-        fabricante = prompt("ERROR. Reingrese el nombre del fabricante:");
-    }
+
     // TIPOS DE DATOS
     switch(tipoProducto)
     {
         case "alcohol":
-            if(flagPrimerAlcohol == "es el primero") // PRIMER ALCOHOL INGRESADO
+            if(precio < precioAlcoholMasBarato || contadorAlcohol == 0 ) 
             {
                 precioAlcoholMasBarato = precio;
                 cantidadAlcoholMasBarato = cantidad;
                 fabricanteAlcoholMasBarato = fabricante;
                 contadorAlcohol++;
                 acumuladorAlcohol = acumuladorAlcohol + cantidad;
-                flagPrimerAlcohol="NO es el primero";
-            } else {
-                if(precio < precioAlcoholMasBarato) // SI NO ES EL PRIMERO, COMPARO PRECIOS
-                {
-                    precioAlcoholMasBarato = precio;
-                    cantidadAlcoholMasBarato = cantidad;
-                    fabricanteAlcoholMasBarato = fabricante;
-                    contadorAlcohol++;
-                    acumuladorAlcohol = acumuladorAlcohol + cantidad;
-                }
-            }
+            } 
             break;
         case "jabon":
                 contadorJabones++;
@@ -108,18 +89,26 @@ while(contadorProductos<5)
     }//FIN SWITCH
 contadorProductos++;
 }//FIN WHILE 5 UNIDADES
-if(acumuladorAlcohol>acumuladorBarbijos && acumuladorAlcohol > acumuladorJabones)
-{
-    tipoDeMayorCantidad = "alcohol"
-} else
-{
-    if()
+if(acumuladorAlcohol > acumuladorBarbijos && acumuladorAlcohol > acumuladorJabones)
+    {
+        promedioPorCompra = acumuladorAlcohol /contadorAlcohol;
+    } else {
+        if(acumuladorBarbijos > acumuladorJabones)
+        {
+            promedioPorCompra = acumuladorBarbijos / contadorBarbijos;
+        }else{
+            promedioPorCompra = acumuladorJabones / contadorJabones;
+        }
+    }
+if(contadorAlcohol > 0){
+    document.write("Del más barato de los alcohol, la cantidad de unidades es: "+cantidadAlcoholMasBarato+ " y el fabricante es: "+fabricanteAlcoholMasBarato+"<br>");
+}else{
+    document.write("No se ingreso ningun alcohol" +"<br>");
 }
-
-promedioPorCompra = flagMayorCantidad / 5; //el promedio por compra 
-
-document.write("Del más barato de los alcohol, la cantidad de unidades es: "+cantidadAlcoholMasBarato+ " y el fabricante es: "+fabricanteAlcoholMasBarato+"<br>");
-document.write("El promedio del tipo con más unidades: "+ +"<br>");
-document.write("La cantidad total de jabones es: " +contadorJabones);
-
+document.write("El promedio del tipo con más unidades: "+ promedioPorCompra +"<br>");
+if(contadorJabones > 0){
+    document.write("La cantidad total de jabones es: " + acumuladorJabones);
+}else{
+    document.write("No se ingreso ningun jabon ");
+}
 }//FIN FUNCION
