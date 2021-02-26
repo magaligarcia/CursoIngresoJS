@@ -86,5 +86,11 @@ function mostrar()
 	document.write("La cantidad de mayores de edad viudos: " + cantidadMayoresViudos + "<br>");
 	document.write("La cantidad de hombres que hay solteros o viudos: " + hombresSolterosOViudos + "<br>");
 	document.write("Personas de la tercera edad con mas de 38 de temperatura: " + contadorMayoresConTemperatura + "<br>");
-	document.write("El promedio de edad entre los hombres solteros es de: " + promedioHombresSolteros + "<br>");
+
+	if(hombresSolterosOViudos == 0){
+		document.write("No hay hombres solteros para promediar la edad");
+	}else {
+		document.write("El promedio de edad entre los hombres solteros es de: " + promedioHombresSolteros + "<br>");
+	}
+	
 }//FIN FUNCION
