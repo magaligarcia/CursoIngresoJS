@@ -58,8 +58,8 @@ function mostrar()
 			cantidadMayoresViudos++;
 		}
 		if(edad > 60 && temperaturaCorporal > 38){ // d) PERSONAS MAYORES CON TEMPERATURA > 38
-					contadorMayoresConTemperatura++;
-				}
+			contadorMayoresConTemperatura++;
+			}
 		switch (estadoCivil) {
 			case "soltero": 
 				if(sexo == "m"){

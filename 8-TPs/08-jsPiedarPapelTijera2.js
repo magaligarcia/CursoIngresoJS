@@ -1,3 +1,6 @@
+/*3. Piedra, Papel o Tijera (v 2.0):
+Ahora debemos informar cuantas veces se ganó, perdió o empató desde la última recarga de página*/
+
 var eleccionMaquina;
 var ContadorDeEmpates=0;
 var ContadorDeGanadas=0;

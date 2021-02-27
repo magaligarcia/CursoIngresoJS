@@ -21,7 +21,6 @@ function mostrar()
     var precioPorBolsa;
     var totalAPagarBruto;
     var totalAPagarConDescuento;
-    var mayorCantidadDeBolsas;
     var tipoMayorCantidadDeBolsas;
     var tipoMasCaro;
     var precioDelMasCaro;
@@ -31,57 +30,75 @@ function mostrar()
     acumuladorAPagarBruto = 0;
     precioDelMasCaro = 0;
     tipoMayorCantidadDeBolsas = 0;
+    acumuladorArena = 0;
+    acumuladorCal = 0;
+    acumuladorCemento = 0;
 
     ingresarOtroProducto = "si";
     while (ingresarOtroProducto == "si") { //INGRESA DATOS HASTA QUE QUIERA
         tipoProducto = prompt("Ingrese el tipo del producto: ARENA, CAL O CEMENTO:").toLowerCase();
-            while (tipoProducto != "arena" && tipoProducto != "cal" && tipoProducto != "cemento") {
-                tipoProducto = prompt("ERROR!. El tipo del producto debe ser: ARENA, CAL O CEMENTO:").toLowerCase();
-            }
-
+        while (tipoProducto != "arena" && tipoProducto != "cal" && tipoProducto != "cemento") {
+            tipoProducto = prompt("ERROR!. El tipo del producto debe ser: ARENA, CAL O CEMENTO:").toLowerCase();
+        }
+        
         cantidadDeBolsas = prompt("Ingrese la cantidad de bolsas");
-            while (isNaN(cantidadDeBolsas) == true) {
-                cantidadDeBolsas = prompt("ERROR! Ingrese en números la cantidad de bolsas que desea: ");
-            }
-            cantidadDeBolsas = parseInt(cantidadDeBolsas);
-            acumuladorTotalDeBolsas = acumuladorTotalDeBolsas + cantidadDeBolsas;
-
+        cantidadDeBolsas = parseInt(cantidadDeBolsas);
+        while (isNaN(cantidadDeBolsas) == true) {
+            cantidadDeBolsas = prompt("ERROR! Ingrese en números la cantidad de bolsas que desea: ");
+        }
+        
+        acumuladorTotalDeBolsas = acumuladorTotalDeBolsas + cantidadDeBolsas;
+        switch (tipoProducto) { //ACUMULADOR POR TIPO
+            case "arena":
+                acumuladorArena = acumuladorArena + cantidadDeBolsas;
+                break;
+            case "cal":
+                acumuladorCal = acumuladorCal + cantidadDeBolsas;
+                break;
+            default:
+                acumuladorCemento = acumuladorCemento + cantidadDeBolsas;
+                break; 
+        } 
         precioPorBolsa = prompt("Ingrese el precio por bolsas");
-            while (isNaN(precioPorBolsa) == true || precioPorBolsa < 0) {
-                precioPorBolsa = prompt("ERROR! Ingrese en números el precio por bolsa: ");
-            }
-            precioPorBolsa = parseInt(precioPorBolsa);
+        precioPorBolsa = parseInt(precioPorBolsa);
+        while (isNaN(precioPorBolsa) == true || precioPorBolsa < 0) {
+            precioPorBolsa = prompt("ERROR! Ingrese en números el precio por bolsa: ");
+        }
             
         totalAPagarBruto = precioPorBolsa * cantidadDeBolsas; //TOTAL BRUTO POR PRODUCTO
         acumuladorAPagarBruto = acumuladorAPagarBruto + totalAPagarBruto; //TOTAL BRUTO POR COMPRA
-         //tipo con mas cantidad de bolsas
-        if(tipoMayorCantidadDeBolsas < cantidadDeBolsas){
-            mayorCantidadDeBolsas = cantidadDeBolsas; 
-            tipoMayorCantidadDeBolsas = tipoProducto;
+        //tipo con mas cantidad de bolsas
+        if (acumuladorCemento > acumuladorCal && acumuladorCemento > acumuladorArena){
+            tipoMayorCantidadDeBolsas = "Cemento";
+        } else {
+            if(acumuladorArena > acumuladorCal ){
+                tipoMayorCantidadDeBolsas = "Arena";
+            } else {
+                tipoMayorCantidadDeBolsas ="Cal";
+            }
         }
         //El tipo mas caro
         if(precioPorBolsa > precioDelMasCaro){
             precioDelMasCaro = precioPorBolsa;
             tipoMasCaro = tipoProducto;
         }
-    //MODIFICO VARIABLE DE CONTROL
-    ingresarOtroProducto = prompt("Desea comprar otro producto? Responda Si o No: ").toLowerCase();
-    while (ingresarOtroProducto != "si" && ingresarOtroProducto != "no") {
-        ingresarOtroProducto = prompt("ERROR! Responda Si o No: ").toLowerCase();
-    }
+        //MODIFICO VARIABLE DE CONTROL
+        ingresarOtroProducto = prompt("Desea comprar otro producto? Responda Si o No: ").toLowerCase();
+        while (ingresarOtroProducto != "si" && ingresarOtroProducto != "no") {
+            ingresarOtroProducto = prompt("ERROR! Responda Si o No: ").toLowerCase();
+        }
     }//FIN WHILE INGRESO DE PRODUCTOS
 
     if(acumuladorTotalDeBolsas > 30){   // DESCUENTO SI SON MAS DE 30 BOLSAS
-            totalAPagarConDescuento = totalAPagarBruto * 25 / 100;
+            totalAPagarConDescuento = acumuladorAPagarBruto * 0.75;
             document.write("El importe con decuento es: "+totalAPagarConDescuento+"<br>");
     } else {
-        if(acumuladorTotalDeBolsas > 10 && acumuladorTotalDeBolsas < 31){ // SI SON  MAS DE 10 PERO MENOS DE 30
-        totalAPagarConDescuento = totalAPagarBruto * 15 / 100;
+        if(acumuladorTotalDeBolsas > 10 && acumuladorTotalDeBolsas < 31){ // SI SON  ENTRE 10 Y 30
+        totalAPagarConDescuento = acumuladorAPagarBruto * 0.85;
         document.write("El importe con decuento es: "+totalAPagarConDescuento+"<br>");
-        }else{
-            document.write("El importe total es: "+totalAPagarBruto+ "<br>"); // MENOS DE 10 BOLSAS
         }
     }
+    document.write("El importe total es: "+acumuladorAPagarBruto+ "<br>"); // MENOS DE 10 BOLSAS
     document.write("El tipo con mas cantidad de bolsas es: "+tipoMayorCantidadDeBolsas+"<br>");
     document.write("El tipo más caro es: "+tipoMasCaro);
 }// FIN DE LA FUNCION
