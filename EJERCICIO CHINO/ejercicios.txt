@@ -1,0 +1,26 @@
+3- validación :
+pedir el ingreso de 10 mascotas 
+ validar 
+tipo ( gato , perro , pájaro y otros)solo esos cuatro tipo
+raza , si es perro (pastor, toy, callejero) y si gato (siamés, turco, Peterbald , generico) y  si es de tipo "otros" o pájaro , pedir solo un texto
+edad entre 1 y 20 para gatos y perros ,  para "otros" entre 1 y 100 , para pájaro 1 de 50
+nombre ( no se permite solo numero)
+mostrar por cada tipo el nombre del  mas viejo , solo si hay de ese tipo
+mostrar que raza  de gatos tiene mas animales y el promedio de edad de esta raza
+
+
+1-Descargar el zip, dentro del mismo se encuentran el html, con la consigna, y el js para resolverlo.
+2- "super chino" Se pide el ingreso de mercadería de un supermercado , hasta que el usuario quiera,se pide :
+tipo(limpieza , comestible , otros)solo estos tres tipos
+nombre del producto
+importe del producto (no mayor a 1000 pesos)
+procedencia(importado, nacional, elaborado)
+Peso (no mayor a 30 kilos)
+
+informar SOLO SI HAY 
+a) el NOMBRE del mas pesado de los comestibles
+b) el NOMBRE del  mas caro de todos los productos
+c) el NOMBRE del  mas barato de los elaborados
+d)el tipo de mercadería  que mas aparece
+e)el porcentaje de productos elaborados por sobre el total
+f) el promedio de pesos por cada tipo ingresado
